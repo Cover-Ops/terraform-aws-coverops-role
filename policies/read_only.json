@@ -1,0 +1,47 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CoverOpsReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeRegions",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeImages",
+        "ec2:DescribeReservedInstances",
+        "ec2:DescribeNatGateways",
+        "organizations:DescribeOrganization",
+        "organizations:ListAccounts",
+        "rds:DescribeDBInstances",
+        "rds:DescribeDBClusters",
+        "s3:ListAllMyBuckets",
+        "s3:GetBucketLocation",
+        "s3:GetBucketTagging",
+        "s3:GetLifecycleConfiguration",
+        "elasticloadbalancing:DescribeLoadBalancers",
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:DescribeTargetHealth",
+        "lambda:ListFunctions",
+        "lambda:GetFunctionConfiguration",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:ListMetrics",
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast",
+        "ce:GetReservationCoverage",
+        "ce:GetSavingsPlansCoverage",
+        "ce:GetSavingsPlansPurchaseRecommendation",
+        "ce:GetReservationPurchaseRecommendation",
+        "savingsplans:DescribeSavingsPlans",
+        "eks:ListClusters",
+        "eks:DescribeCluster",
+        "autoscaling:DescribeAutoScalingGroups",
+        "tag:GetResources"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
