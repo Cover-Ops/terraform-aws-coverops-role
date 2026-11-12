@@ -20,6 +20,51 @@ variable "trusted_principal" {
 }
 
 variable "role_name" {
-  type    = string
-  default = "CoverOpsAccess"
+  description = "Name of the IAM role."
+  type        = string
+  default     = "CoverOpsAccess"
+}
+
+variable "role_path" {
+  description = "IAM path for the role, if your account files vendor roles under one (e.g. /vendors/)."
+  type        = string
+  default     = "/"
+}
+
+variable "permissions_boundary" {
+  description = "ARN of a permissions boundary your account requires on new roles, or null."
+  type        = string
+  default     = null
+}
+
+variable "environment" {
+  description = "Which environment this account is: production, staging or development."
+  type        = string
+  validation {
+    condition     = contains(["production", "staging", "development"], var.environment)
+    error_message = "Use production, staging or development."
+  }
+}
+
+variable "owner" {
+  description = "Who answers for this account: a team or a person's email. Goes in the Owner tag."
+  type        = string
+}
+
+variable "project" {
+  description = "Value of the Project tag."
+  type        = string
+  default     = "coverops"
+}
+
+variable "cost_centre" {
+  description = "Cost centre or budget line for the CostCentre tag, e.g. engineering."
+  type        = string
+  default     = "engineering"
+}
+
+variable "extra_tags" {
+  description = "More tags to add to the role."
+  type        = map(string)
+  default     = {}
 }

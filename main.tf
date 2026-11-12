@@ -1,7 +1,25 @@
-# Generated from coverops_backend/src/providers/aws/policy.ts — do not edit by hand.
+# CoverOps Marketplace kit: the CoverOps access role. Apache 2.0.
+# The policies in policies/ are the same ones the CoverOps connect wizard and
+# CloudFormation template show. They are generated from the platform, so don't
+# edit them by hand.
+
+locals {
+  tags = merge(var.extra_tags, {
+    Project     = var.project
+    Environment = var.environment
+    Owner       = var.owner
+    CostCentre  = var.cost_centre
+    ManagedBy   = "terraform"
+    Kit         = "coverops/aws-coverops-role"
+  })
+}
+
 resource "aws_iam_role" "coverops" {
   name                 = var.role_name
+  path                 = var.role_path
+  permissions_boundary = var.permissions_boundary
   max_session_duration = 3600
+  tags                 = local.tags
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{

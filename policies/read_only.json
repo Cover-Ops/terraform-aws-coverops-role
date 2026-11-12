@@ -14,6 +14,7 @@
         "ec2:DescribeImages",
         "ec2:DescribeReservedInstances",
         "ec2:DescribeNatGateways",
+        "ec2:DescribeSpotPriceHistory",
         "organizations:DescribeOrganization",
         "organizations:ListAccounts",
         "rds:DescribeDBInstances",

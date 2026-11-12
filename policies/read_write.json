@@ -14,6 +14,7 @@
         "ec2:DescribeImages",
         "ec2:DescribeReservedInstances",
         "ec2:DescribeNatGateways",
+        "ec2:DescribeSpotPriceHistory",
         "organizations:DescribeOrganization",
         "organizations:ListAccounts",
         "rds:DescribeDBInstances",
@@ -72,6 +73,36 @@
       "Condition": {
         "StringEquals": {
           "autoscaling:ResourceTag/coverops:managed": "true"
+        }
+      }
+    },
+    {
+      "Sid": "CoverOpsRestoreManagedVolume",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateVolume"
+      ],
+      "Resource": [
+        "arn:aws:ec2:*:*:volume/*",
+        "arn:aws:ec2:*::snapshot/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/coverops:managed": "true"
+        }
+      }
+    },
+    {
+      "Sid": "CoverOpsTagOnRestore",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:CreateTags"
+      ],
+      "Resource": "arn:aws:ec2:*:*:volume/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestTag/coverops:managed": "true",
+          "ec2:CreateAction": "CreateVolume"
         }
       }
     }
