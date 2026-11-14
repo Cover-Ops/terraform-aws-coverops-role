@@ -2,7 +2,7 @@
 
 A CoverOps Marketplace kit. The IAM role the CoverOps Platform uses to read your AWS account and find savings: read-only by default, protected by an External ID. It holds the same policy the CoverOps connect wizard and CloudFormation template show. Terraform ≥ 1.6 or OpenTofu ≥ 1.6, AWS provider 6.x. Apache 2.0.
 
-> Status: **v1.2.0, tested on 2026-11-12**: applied, re-planned with no changes and destroyed on a sandbox AWS account (ap-south-1), nothing left behind. Run `terraform plan` before you apply it to your account.
+> Status: **v1.3.0, tested on 2026-11-14**: applied, re-planned with no changes and destroyed on a sandbox AWS account (ap-south-1), nothing left behind. Run `terraform plan` before you apply it to your account.
 
 ## What it creates
 
@@ -24,7 +24,7 @@ The role carries `Project` (default `coverops`), `Environment`, `Owner`, `CostCe
 
 ```hcl
 module "coverops" {
-  source = "github.com/Cover-Ops/terraform-aws-coverops-role?ref=v1.2.0"
+  source = "github.com/Cover-Ops/terraform-aws-coverops-role?ref=v1.3.0"
 
   external_id = "<the External ID from Cloud accounts → Add account>"
   environment = "production"

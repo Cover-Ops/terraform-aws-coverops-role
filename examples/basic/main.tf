@@ -5,7 +5,7 @@ provider "aws" {
 
 module "coverops" {
   source = "../.."
-  # After publishing: source = "github.com/Cover-Ops/terraform-aws-coverops-role?ref=v1.2.0"
+  # After publishing: source = "github.com/Cover-Ops/terraform-aws-coverops-role?ref=v1.3.0"
 
   external_id = "paste-the-external-id-from-coverops"
   environment = "production"

@@ -2,6 +2,11 @@
 
 Semantic versions. Every release lists its sandbox test result.
 
+## 1.3.0 (2026-11-12)
+- Read-only policy adds `logs:DescribeLogGroups`: CoverOps finds CloudWatch log groups set to never expire.
+- Read-only policy adds `eks:ListNodegroups` and `eks:ListFargateProfiles`: CoverOps finds EKS clusters with nothing to run pods on.
+- Sandbox test: **not run yet**.
+
 ## 1.2.0 (2026-11-12)
 - Read-only policy adds `ec2:DescribeSpotPriceHistory`: without it CoverOps priced spot instances at the on-demand rate, overstating their cost.
 - Read/write policy adds `ec2:CreateVolume` and `ec2:CreateTags`, only for volumes created with the tag `coverops:managed=true`: undoing a volume delete was refused before.

@@ -30,6 +30,7 @@
         "lambda:GetFunctionConfiguration",
         "cloudwatch:GetMetricData",
         "cloudwatch:ListMetrics",
+        "logs:DescribeLogGroups",
         "ce:GetCostAndUsage",
         "ce:GetCostForecast",
         "ce:GetReservationCoverage",
@@ -39,6 +40,8 @@
         "savingsplans:DescribeSavingsPlans",
         "eks:ListClusters",
         "eks:DescribeCluster",
+        "eks:ListNodegroups",
+        "eks:ListFargateProfiles",
         "autoscaling:DescribeAutoScalingGroups",
         "tag:GetResources"
       ],
